@@ -1,0 +1,18 @@
+version: '3'
+services:
+  web1:
+    image: test
+    environment:
+      - PORT=9527
+    network_mode: host
+
+  web2:
+    image: test
+    environment:
+      - PORT=9528
+    network_mode: host
+  web3:
+    image: test
+    environment:
+      - PORT=9529
+    network_mode: host

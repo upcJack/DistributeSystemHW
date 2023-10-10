@@ -1,0 +1,25 @@
+post:
+curl  --http0.9 -XPOST -H "Content-type: application/json" http://127.0.0.1:9527/ -d "{\"myname\": \"电子科技大学@2023\"}" 
+
+curl --http0.9 -XPOST -H "Content-type: application/json" http://127.0.0.1:9527/ -d "{\"tasks\": [\"task 1\", \"task 2\", \"task 3\"]}"
+curl --http0.9 -XPOST -H "Content-type: application/json" http://127.0.0.1:9527/ -d "{\"age\": 123}"
+
+curl --http0.9 -XPOST -H "Content-type: application/json" http://172.17.0.2:9527/ -d "{\"myname\": \"电子科技大学@2023\"}" 
+
+get：
+curl  --http0.9 http://127.0.0.1:9527/myname
+{"myname": "电子科技大学@2023"}
+
+curl  --http0.9 http://127.0.0.1:9527/tasks
+{"tasks": ["task 1", "task 2", "task 3"]}
+
+curl http://server1/notexistkey
+# 404, not found
+
+delete:
+curl --http0.9 -XDELETE http://127.0.0.1:9527/myname
+curl --http0.9 -XDELETE http://127.0.0.1:9527/age
+
+
+
+docker run -p 9527:9527 -p 9528:9527 -p 9529:9527 myapp
